@@ -110,7 +110,7 @@ function displayChallenges() {
   challenges.forEach(challenge => {
     const isCompleted = farmerData.completedChallenges.includes(challenge.id);
     const card = $(`
-      <div class="bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition-all cursor-pointer ${isCompleted ? 'opacity-60' : ''}" data-challenge-id="${challenge.id}">
+      <div class="bg-white rounded-3xl shadow-lg p-6 transform hover:scale-105 transition-all cursor-pointer ${isCompleted ? 'opacity-60' : ''}" data-challenge-id="${challenge.id}">
         <div class="text-6xl text-center mb-4">${challenge.icon}</div>
         <h4 class="text-xl font-bold text-emerald-700 mb-2 text-center">${challenge.title}</h4>
         <p class="text-gray-600 text-sm mb-4 text-center">${challenge.description.substring(0, 60)}...</p>
