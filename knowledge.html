@@ -27,7 +27,7 @@
         width: 100%;
         height: 100%;
         backface-visibility: hidden;
-        border-radius: 1rem;
+        border-radius: 1.3rem;
       }
       .flip-card-back {
         transform: rotateY(180deg);
@@ -38,7 +38,7 @@
     <nav class="bg-emerald-700 text-white shadow-xl">
       <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
-          <h1 class="text-3xl font-bold">FarmQuest</h1>
+          <h1 class="text-3xl font-bold flex items-center gap-2">FarmQuest<img src="/logo.png" alt="FarmQuest Logo" class="w-12 h-12"/></h1>
           <div class="flex gap-6">
             <a href="dashboard.html" class="hover:text-yellow-300 font-semibold">Dashboard</a>
             <a href="knowledge.html" class="hover:text-yellow-300 font-semibold border-b-2 border-yellow-300">Knowledge</a>
@@ -49,7 +49,7 @@
     </nav>
 
     <div class="container mx-auto px-6 py-8">
-      <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8">
+      <div class="bg-white rounded-3xl shadow-2xl p-8 mb-8">
         <h2 class="text-4xl font-bold text-emerald-700 mb-2 text-center">📘 Sustainable Farming Quiz</h2>
         <p class="text-gray-600 text-center mb-8">Test your knowledge and earn rewards!</p>
         <div id="quizSection"></div>
@@ -60,69 +60,136 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center p-6 shadow-xl">
-              <h4 class="text-2xl font-bold text-white text-center">What is Composting? 🌿</h4>
+            <div class="flip-card-front bg-cover bg-center flex items-center justify-center p-6 shadow-xl" style="background-image: url('/composting.png');">
+              <h4 class="text-3xl font-bold text-white text-center bg-black/25 px-4 py-2 rounded-3xl drop-shadow-lg">Composting? 🌿</h4>
             </div>
             <div class="flip-card-back bg-white shadow-xl p-6 flex items-center">
-              <p class="text-gray-700">Composting is the natural process of recycling organic matter into nutrient-rich fertilizer. It reduces waste and improves soil health!</p>
+              <p class="text-gray-700">To compost effectively, layer kitchen scraps with dry leaves, keep the pile slightly moist, and turn it regularly to maintain airflow. This helps the materials break down faster while preventing foul odors and pests.</p>
             </div>
           </div>
         </div>
 
         <div class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center p-6 shadow-xl">
-              <h4 class="text-2xl font-bold text-white text-center">Rainwater Harvesting 💧</h4>
+            <div class="flip-card-front bg-cover bg-center flex items-center justify-center p-6 shadow-xl" style="background-image: url('/rainwater.png');">
+              <h4 class="text-3xl font-bold text-white text-center bg-black/25 px-4 py-2 rounded-3xl drop-shadow-lg">Rainwater Harvesting 💧</h4>
             </div>
             <div class="flip-card-back bg-white shadow-xl p-6 flex items-center">
-              <p class="text-gray-700">Collecting and storing rainwater for irrigation conserves groundwater, reduces water bills, and provides a sustainable water source.</p>
+              <p class="text-gray-700">For efficient rainwater harvesting, use gutters and filters to capture clean runoff, store it in covered tanks to prevent algae growth, and use the collected water for irrigation during dry periods to reduce your groundwater use.</p>
             </div>
           </div>
         </div>
 
         <div class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center p-6 shadow-xl">
-              <h4 class="text-2xl font-bold text-white text-center">Crop Rotation 🔄</h4>
+            <div class="flip-card-front bg-cover bg-center flex items-center justify-center p-6 shadow-xl" style="background-image: url('/croprotate.png');">
+              <h4 class="text-3xl font-bold text-white text-center bg-black/25 px-4 py-2 rounded-3xl drop-shadow-lg">Crop Rotation 🔄</h4>
             </div>
             <div class="flip-card-back bg-white shadow-xl p-6 flex items-center">
-              <p class="text-gray-700">Growing different crops in sequence prevents soil depletion, breaks pest cycles, and maintains soil fertility naturally.</p>
+              <p class="text-gray-700">Practice crop rotation by planting different crop families each season, avoiding back-to-back planting of the same crop, and including legumes to naturally improve soil nitrogen. This prevents nutrient depletion and disrupts pest cycles.</p>
             </div>
           </div>
         </div>
 
         <div class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front bg-gradient-to-br from-lime-400 to-lime-600 flex items-center justify-center p-6 shadow-xl">
-              <h4 class="text-2xl font-bold text-white text-center">Organic Pest Control 🐞</h4>
+            <div class="flip-card-front bg-cover bg-center flex items-center justify-center p-6 shadow-xl" style="background-image: url('/pestcontrol.png');">
+              <h4 class="text-3xl font-bold text-white text-center bg-black/25 px-4 py-2 rounded-3xl drop-shadow-lg">Organic Pest Control 🐞</h4>
             </div>
             <div class="flip-card-back bg-white shadow-xl p-6 flex items-center">
-              <p class="text-gray-700">Using beneficial insects, companion planting, and natural repellents eliminates pests without harmful chemicals.</p>
+              <p class="text-gray-700">Improve pest control naturally by introducing beneficial insects like ladybugs, using neem oil or garlic sprays, and planting pest-repelling plants such as marigolds. These methods reduce pests without harming soil or crops.</p>
             </div>
           </div>
         </div>
 
         <div class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center p-6 shadow-xl">
-              <h4 class="text-2xl font-bold text-white text-center">Mulching Benefits 🍂</h4>
+            <div class="flip-card-front bg-cover bg-center flex items-center justify-center p-6 shadow-xl" style="background-image: url('/mulching.png');">
+              <h4 class="text-3xl font-bold text-white text-center bg-black/25 px-4 py-2 rounded-3xl drop-shadow-lg">Mulching Benefits 🍂</h4>
             </div>
             <div class="flip-card-back bg-white shadow-xl p-6 flex items-center">
-              <p class="text-gray-700">Mulch retains soil moisture, suppresses weeds, regulates temperature, and adds organic matter as it decomposes.</p>
+              <p class="text-gray-700">Apply a 2–3 inch layer of mulch around your plants to retain moisture, block weeds, and regulate soil temperature. Use organic mulch like straw or leaves and keep it slightly away from stems to avoid rot.</p>
             </div>
           </div>
         </div>
 
         <div class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center p-6 shadow-xl">
-              <h4 class="text-2xl font-bold text-white text-center">Cover Crops 🌾</h4>
+            <div class="flip-card-front bg-cover bg-center flex items-center justify-center p-6 shadow-xl" style="background-image: url('/covercrop.png');">
+              <h4 class="text-3xl font-bold text-white text-center bg-black/25 px-4 py-2 rounded-3xl drop-shadow-lg">Cover Crops 🌾</h4>
             </div>
             <div class="flip-card-back bg-white shadow-xl p-6 flex items-center">
-              <p class="text-gray-700">Planting cover crops during off-seasons prevents erosion, fixes nitrogen, and improves soil structure and biodiversity.</p>
+              <p class="text-gray-700">Grow cover crops during off-seasons to protect soil, fix nitrogen, and suppress weeds. Mow the cover crop before it flowers and incorporate it into the soil to boost organic matter and improve structure.</p>
             </div>
           </div>
         </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-cover bg-center flex items-center justify-center p-6 shadow-xl" style="background-image: url('/soiltesting.png');">
+              <h4 class="text-3xl font-bold text-white text-center bg-black/25 px-4 py-2 rounded-3xl drop-shadow-lg">Soil Testing 🧪</h4>
+            </div>
+            <div class="flip-card-back bg-white shadow-xl p-6 flex items-center">
+              <p class="text-gray-700">Test your soil before every planting cycle to understand nutrient levels and pH. Adjust the pH with lime or sulfur as needed and apply fertilizers based on actual deficiencies to avoid waste and improve yields.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-cover bg-center flex items-center justify-center p-6 shadow-xl" style="background-image: url('/tools.png');">
+              <h4 class="text-3xl font-bold text-white text-center bg-black/25 px-4 py-2 rounded-3xl drop-shadow-lg">Precision Tools ⛏️</h4>
+            </div>
+            <div class="flip-card-back bg-white shadow-xl p-6 flex items-center">
+              <p class="text-gray-700">Use precision tools like soil moisture sensors, drones, and GPS-based equipment to monitor plants, optimize water usage, and apply inputs accurately. This reduces waste and helps maintain consistent crop performance.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-cover bg-center flex items-center justify-center p-6 shadow-xl" style="background-image: url('/greenhouse.png');">
+              <h4 class="text-3xl font-bold text-white text-center bg-black/25 px-4 py-2 rounded-3xl drop-shadow-lg">Greenhouse Farming 🌡️</h4>
+            </div>
+            <div class="flip-card-back bg-white shadow-xl p-6 flex items-center">
+              <p class="text-gray-700">Manage your greenhouse efficiently by using shade nets to control temperature, installing drip irrigation for water savings, and ventilating frequently to reduce humidity and prevent fungal diseases.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-cover bg-center flex items-center justify-center p-6 shadow-xl" style="background-image: url('/weed.png');">
+              <h4 class="text-3xl font-bold text-white text-center bg-black/25 px-4 py-2 rounded-3xl drop-shadow-lg">Weed Management 🌾</h4>
+            </div>
+            <div class="flip-card-back bg-white shadow-xl p-6 flex items-center">
+              <p class="text-gray-700">Control weeds early before they produce seeds, apply mulch to block light and inhibit growth, and use closer plant spacing to reduce open areas where weeds can thrive. These steps lower the need for chemical control.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-cover bg-center flex items-center justify-center p-6 shadow-xl" style="background-image: url('/dripirrigation.png');">
+              <h4 class="text-3xl font-bold text-white text-center bg-black/25 px-4 py-2 rounded-3xl drop-shadow-lg">Drip Irrigation 💧</h4>
+            </div>
+            <div class="flip-card-back bg-white shadow-xl p-6 flex items-center">
+              <p class="text-gray-700">Keep drip systems efficient by checking emitters regularly for clogs, using pressure regulators to maintain stable flow, and watering early in the morning to minimize evaporation and improve water availability.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-cover bg-center flex items-center justify-center p-6 shadow-xl" style="background-image: url('/agroforestry.png');">
+              <h4 class="text-3xl font-bold text-white text-center bg-black/25 px-4 py-2 rounded-3xl drop-shadow-lg">Agroforestry 🌳</h4>
+            </div>
+            <div class="flip-card-back bg-white shadow-xl p-6 flex items-center">
+              <p class="text-gray-700">Enhance your farm with agroforestry by planting nitrogen-fixing trees along field edges, using trees as windbreaks, and selecting species that provide multiple benefits like fruit, shade, and soil improvement.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 

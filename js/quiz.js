@@ -330,7 +330,13 @@ $(document).ready(function() {
 });
 
 function loadFarmerData() {
-  const data = localStorage.getItem('farmerData');
+  const currentUser = localStorage.getItem('currentUser');
+  if (!currentUser) {
+    window.location.href = 'index.html';
+    return;
+  }
+  const userKey = `farmerData:${currentUser}`;
+  const data = localStorage.getItem(userKey);
   if (data) {
     farmerData = JSON.parse(data);
   } else {
@@ -339,7 +345,10 @@ function loadFarmerData() {
 }
 
 function saveFarmerData() {
-  localStorage.setItem('farmerData', JSON.stringify(farmerData));
+  const currentUser = localStorage.getItem('currentUser');
+  if (!currentUser) return;
+  const userKey = `farmerData:${currentUser}`;
+  localStorage.setItem(userKey, JSON.stringify(farmerData));
 }
 
 function renderQuiz() {

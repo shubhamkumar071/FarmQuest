@@ -5,7 +5,12 @@ const challenges = [
     title: 'Composting Waste',
     description: 'Turn organic waste into nutrient-rich compost for your farm. Learn proper composting techniques and reduce waste!',
     xp: 50,
-    coins: 20
+    coins: 20,
+    tasks: [
+      'Collect kitchen scraps and dry leaves',
+      'Layer greens and browns properly',
+      'Turn the compost pile once'
+    ]
   },
   {
     id: 'rainwater',
@@ -13,7 +18,12 @@ const challenges = [
     title: 'Rainwater Harvesting',
     description: 'Collect and store rainwater for irrigation. Save water resources and reduce your environmental impact!',
     xp: 60,
-    coins: 25
+    coins: 25,
+    tasks: [
+      'Set up gutters or collection surface',
+      'Place/clean a filter on inlet',
+      'Store water in a covered tank'
+    ]
   },
   {
     id: 'organic-pest',
@@ -21,7 +31,12 @@ const challenges = [
     title: 'Organic Pest Control',
     description: 'Use natural methods to control pests without harmful chemicals. Protect your crops and the environment!',
     xp: 55,
-    coins: 22
+    coins: 22,
+    tasks: [
+      'Identify beneficial insects',
+      'Apply a natural spray (e.g., neem)',
+      'Add a companion plant row'
+    ]
   },
   {
     id: 'crop-rotation',
@@ -29,7 +44,12 @@ const challenges = [
     title: 'Crop Rotation',
     description: 'Rotate your crops to maintain soil health and prevent pest buildup. Improve long-term farm productivity!',
     xp: 65,
-    coins: 28
+    coins: 28,
+    tasks: [
+      'List last season\'s crops',
+      'Plan next crop family',
+      'Mark rotation on plot map'
+    ]
   },
   {
     id: 'water-efficient',
@@ -37,7 +57,12 @@ const challenges = [
     title: 'Efficient Water Use',
     description: 'Implement drip irrigation and water-saving techniques. Conserve precious water resources!',
     xp: 70,
-    coins: 30
+    coins: 30,
+    tasks: [
+      'Fix visible leaks',
+      'Mulch around plants',
+      'Schedule early-morning watering'
+    ]
   },
   {
     id: 'tree-planting',
@@ -45,20 +70,199 @@ const challenges = [
     title: 'Tree Planting',
     description: 'Plant trees around your farm to prevent soil erosion and create habitats. Build a sustainable ecosystem!',
     xp: 80,
-    coins: 35
+    coins: 35,
+    tasks: [
+      'Choose native tree species',
+      'Prepare planting pits',
+      'Water and mulch after planting'
+    ]
+  },
+  {
+    id: 'soil-health',
+    icon: '🧑‍🔬',
+    title: 'Soil Health Boost',
+    description: 'Improve soil structure and fertility through organic amendments and reduced tillage.',
+    xp: 60,
+    coins: 25,
+    tasks: [
+      'Collect soil samples for testing',
+      'Apply compost to one plot',
+      'Record soil moisture before/after'
+    ]
+  },
+  {
+    id: 'greenhouse-care',
+    icon: '🏡',
+    title: 'Greenhouse Care',
+    description: 'Optimize greenhouse environment for healthy, high-yield crops.',
+    xp: 55,
+    coins: 24,
+    tasks: [
+      'Install/clean shade netting',
+      'Check and fix irrigation lines',
+      'Ventilate to reduce humidity'
+    ]
+  },
+  {
+    id: 'livestock-care',
+    icon: '🐄',
+    title: 'Livestock Care',
+    description: 'Enhance animal welfare with clean water, nutrition, and shelter.',
+    xp: 50,
+    coins: 22,
+    tasks: [
+      'Clean water troughs',
+      'Prepare balanced feed',
+      'Inspect shelters for repairs'
+    ]
+  },
+  {
+    id: 'precision-farming',
+    icon: '📡',
+    title: 'Precision Farming',
+    description: 'Use data and sensors to optimize inputs and reduce waste.',
+    xp: 70,
+    coins: 30,
+    tasks: [
+      'Check sensor readings (moisture/EC)',
+      'Adjust irrigation schedule',
+      'Log observations in a notebook'
+    ]
+  },
+  {
+    id: 'market-planning',
+    icon: '📈',
+    title: 'Market Planning',
+    description: 'Plan harvest schedules and buyers to reduce post-harvest loss.',
+    xp: 45,
+    coins: 20,
+    tasks: [
+      'List top 3 buyers/channels',
+      'Estimate harvest window',
+      'Arrange transport or storage'
+    ]
+  },
+  {
+    id: 'renewable-energy',
+    icon: '🔋',
+    title: 'Renewable Energy Setup',
+    description: 'Explore solar or biogas to power farm operations sustainably.',
+    xp: 65,
+    coins: 28,
+    tasks: [
+      'Audit current power usage',
+      'Identify solar/biogas site',
+      'Get a basic cost estimate'
+    ]
+  },
+  {
+    id: 'beekeeping',
+    icon: '🐝',
+    title: 'Beekeeping Basics',
+    description: 'Introduce pollinators for better yields and healthy ecosystems.',
+    xp: 55,
+    coins: 24,
+    tasks: [
+      'Identify a safe hive location',
+      'Plant bee-friendly flowers',
+      'Set up/basic inspect a hive'
+    ]
+  },
+  {
+    id: 'compost-tea',
+    icon: '☕',
+    title: 'Brew Compost Tea',
+    description: 'Brew and apply compost tea to boost soil microbes.',
+    xp: 50,
+    coins: 22,
+    tasks: [
+      'Gather aerator, bucket, and compost',
+      'Brew for 24 hours with aeration',
+      'Apply tea to one crop bed'
+    ]
+  },
+  {
+    id: 'farm-safety',
+    icon: '🦺',
+    title: 'Farm Safety Check',
+    description: 'Reduce accidents by improving on-farm safety practices.',
+    xp: 45,
+    coins: 20,
+    tasks: [
+      'Inspect tools and PPE availability',
+      'Clear walkways and mark hazards',
+      'Review an emergency contact plan'
+    ]
   }
 ];
 
-const leaderboardData = [
-  { name: 'Mahesh Dalle', xp: 850 },
-  { name: 'Sydney Soony', xp: 720 },
-  { name: 'Kiirish', xp: 680 },
-  { name: 'Santosh Pagal', xp: 590 },
-  { name: 'kallu kaliya', xp: 520 }
-];
+function renderTasks(challenge) {
+  const list = $('#tasksList');
+  list.empty();
+
+  const progress = farmerData.taskProgress[challenge.id];
+
+  (challenge.tasks || []).forEach((task, index) => {
+    const item = $(`
+      <li class="flex items-center gap-3">
+        <input type="checkbox" class="task-checkbox w-5 h-5 accent-emerald-600" data-index="${index}" ${progress[index] ? 'checked' : ''} />
+        <span class="text-gray-700">${task}</span>
+      </li>
+    `);
+
+    item.find('.task-checkbox').change(function() {
+      const i = parseInt($(this).data('index'), 10);
+      progress[i] = $(this).is(':checked');
+      saveFarmerData();
+      setStartButtonState(progress.every(Boolean));
+    });
+
+    list.append(item);
+  });
+}
+
+function areAllTasksDone(challengeId) {
+  const arr = farmerData.taskProgress?.[challengeId];
+  return Array.isArray(arr) && arr.length > 0 && arr.every(Boolean);
+}
+
+function setStartButtonState(enabled) {
+  const btn = $('#startChallenge');
+  if (enabled) {
+    btn.prop('disabled', false).removeClass('opacity-50 cursor-not-allowed');
+  } else {
+    btn.prop('disabled', true).addClass('opacity-50 cursor-not-allowed');
+  }
+}
+
+// Build leaderboard dynamically from all users saved in localStorage
+function getAllFarmersFromStorage() {
+  const users = [];
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith('farmerData:')) {
+        const val = localStorage.getItem(key);
+        if (!val) continue;
+        try {
+          const data = JSON.parse(val);
+          if (data && typeof data.name === 'string') {
+            users.push({ name: data.name, xp: Number(data.xp) || 0 });
+          }
+        } catch (_) {
+          // ignore bad JSON
+        }
+      }
+    }
+  } catch (e) {
+    // localStorage not accessible (unlikely here); return current user only
+  }
+  return users;
+}
 
 let farmerData = null;
 let selectedChallenge = null;
+let challengeStarted = false;
 
 $(document).ready(function() {
   loadFarmerData();
@@ -69,16 +273,29 @@ $(document).ready(function() {
 });
 
 function loadFarmerData() {
-  const data = localStorage.getItem('farmerData');
+  const currentUser = localStorage.getItem('currentUser');
+  if (!currentUser) {
+    window.location.href = 'index.html';
+    return;
+  }
+  const userKey = `farmerData:${currentUser}`;
+  const data = localStorage.getItem(userKey);
   if (data) {
     farmerData = JSON.parse(data);
   } else {
     window.location.href = 'index.html';
   }
+  if (!farmerData.taskProgress) {
+    farmerData.taskProgress = {};
+    saveFarmerData();
+  }
 }
 
 function saveFarmerData() {
-  localStorage.setItem('farmerData', JSON.stringify(farmerData));
+  const currentUser = localStorage.getItem('currentUser');
+  if (!currentUser) return;
+  const userKey = `farmerData:${currentUser}`;
+  localStorage.setItem(userKey, JSON.stringify(farmerData));
 }
 
 function displayProfile() {
@@ -140,6 +357,23 @@ function openChallengeModal(challenge) {
   $('#modalCoins').text(challenge.coins);
   $('#modalXP').text(challenge.xp);
 
+  // Initial state: tasks hidden until user clicks Start
+  challengeStarted = false;
+  $('#tasksSection').hide();
+  const btn = $('#startChallenge');
+  btn.text('Start Challenge 🚀');
+  btn.prop('disabled', false).removeClass('opacity-50 cursor-not-allowed');
+
+  // If there is existing task progress for this challenge, restore it and show tasks immediately
+  const existing = farmerData.taskProgress?.[challenge.id];
+  if (Array.isArray(existing) && existing.length > 0) {
+    challengeStarted = true;
+    $('#tasksSection').show();
+    renderTasks(challenge);
+    btn.text('Challenge Complete ✅');
+    setStartButtonState(existing.every(Boolean));
+  }
+
   $('#challengeModal').removeClass('hidden');
   setTimeout(() => {
     $('#modalContent').addClass('scale-100');
@@ -152,10 +386,32 @@ function setupEventListeners() {
     setTimeout(() => {
       $('#challengeModal').addClass('hidden');
     }, 300);
+    // reset started state when closing
+    challengeStarted = false;
   });
 
   $('#startChallenge').click(function() {
-    completeChallenge(selectedChallenge);
+    const btn = $('#startChallenge');
+    if (!challengeStarted) {
+      // start phase: reveal tasks and switch button to complete mode
+      challengeStarted = true;
+      $('#tasksSection').slideDown(200);
+      // initialize task progress if first time
+      if (!farmerData.taskProgress[selectedChallenge.id]) {
+        farmerData.taskProgress[selectedChallenge.id] = new Array(selectedChallenge.tasks?.length || 0).fill(false);
+        saveFarmerData();
+      }
+      renderTasks(selectedChallenge);
+      btn.text('Challenge Complete ✅');
+      const allDone = areAllTasksDone(selectedChallenge.id);
+      setStartButtonState(allDone);
+      return;
+    }
+
+    // completion phase: only complete if enabled (all tasks done)
+    if (!btn.prop('disabled')) {
+      completeChallenge(selectedChallenge);
+    }
   });
 
   $('#themeToggle').click(function() {
@@ -182,6 +438,11 @@ function completeChallenge(challenge) {
 
   if (!farmerData.badges.includes(challenge.id)) {
     farmerData.badges.push(challenge.id);
+  }
+
+  // Clear task progress on completion
+  if (farmerData.taskProgress) {
+    delete farmerData.taskProgress[challenge.id];
   }
 
   saveFarmerData();
@@ -223,8 +484,17 @@ function displayLeaderboard() {
   const tbody = $('#leaderboardBody');
   tbody.empty();
 
-  const allPlayers = [...leaderboardData, { name: farmerData.name, xp: farmerData.xp }];
-  allPlayers.sort((a, b) => b.xp - a.xp);
+  // Gather all saved users
+  let allPlayers = getAllFarmersFromStorage();
+  // Ensure current user is present/up to date
+  const idx = allPlayers.findIndex(u => u.name === farmerData.name);
+  if (idx >= 0) {
+    allPlayers[idx].xp = farmerData.xp;
+  } else {
+    allPlayers.push({ name: farmerData.name, xp: farmerData.xp });
+  }
+  allPlayers = allPlayers.filter(u => typeof u.name === 'string');
+  allPlayers.sort((a, b) => (b.xp || 0) - (a.xp || 0));
 
   const topPlayers = allPlayers.slice(0, 10);
 

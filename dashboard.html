@@ -37,7 +37,7 @@
     <nav class="bg-emerald-700 text-white shadow-xl">
       <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
-          <h1 class="text-3xl font-bold">FarmQuest</h1>
+          <h1 class="text-3xl font-bold flex items-center gap-2">FarmQuest<img src="/logo.png" alt="FarmQuest Logo" class="w-12 h-12"/></h1>
           <div class="flex gap-6">
             <a href="dashboard.html" class="hover:text-yellow-300 font-semibold border-b-2 border-yellow-300">Dashboard</a>
             <a href="knowledge.html" class="hover:text-yellow-300 font-semibold">Knowledge</a>
@@ -101,6 +101,10 @@
         <div class="text-6xl text-center mb-4" id="modalIcon"></div>
         <h2 class="text-3xl font-bold text-emerald-700 mb-4 text-center" id="modalTitle"></h2>
         <p class="text-gray-600 mb-6 text-center" id="modalDescription"></p>
+        <div id="tasksSection" class="mb-6 text-center">
+          <h3 class="text-lg font-bold text-emerald-700 mb-3 text-center">Tasks</h3>
+          <ul id="tasksList" class="space-y-2 flex flex-col items-center"></ul>
+        </div>
         <div class="flex justify-center gap-6 mb-6">
           <div class="text-center">
             <p class="text-2xl font-bold text-yellow-600" id="modalCoins"></p>

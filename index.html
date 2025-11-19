@@ -60,7 +60,8 @@
       <div class="couple absolute bottom-20 right-20" style="animation-delay: 1.5s;"><img src="/couple.png" alt="couple" class="w-auto h-96"/></div>
 
       <div class="z-10 text-center px-6">
-        <h1 class="text-6xl md:text-8xl font-bold text-white drop-shadow-2xl mb-4 animate-pulse">
+        <img src="/logo.png" alt="FarmQuest Logo" class="w-40 h-40 mx-auto mb-0" />
+        <h1 class="text-6xl md:text-8xl font-bold text-white drop-shadow-2xl animate-pulse">
           FarmQuest
         </h1>
         <p class="text-2xl md:text-3xl text-green-900 font-semibold mb-8 drop-shadow-lg">
@@ -97,9 +98,10 @@
         $('#submitName').click(function() {
           const name = $('#farmerName').val().trim();
           if (name) {
-            localStorage.setItem('farmerName', name);
-
-            if (!localStorage.getItem('farmerData')) {
+            // Set the active user and initialize user-specific state if missing
+            localStorage.setItem('currentUser', name);
+            const userKey = `farmerData:${name}`;
+            if (!localStorage.getItem(userKey)) {
               const initialData = {
                 name: name,
                 xp: 0,
@@ -109,7 +111,7 @@
                 badges: [],
                 hasCompletedQuiz: false
               };
-              localStorage.setItem('farmerData', JSON.stringify(initialData));
+              localStorage.setItem(userKey, JSON.stringify(initialData));
             }
 
             $('body').fadeOut(500, function() {
