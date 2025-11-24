@@ -336,14 +336,25 @@ function calculateLevel(xp) {
   return Math.floor(xp / 100) + 1;
 }
 
+function isChallengeInProgress(challengeId) {
+  // Check if challenge has task progress but is not completed
+  const hasProgress = farmerData.taskProgress?.[challengeId] && 
+                      Array.isArray(farmerData.taskProgress[challengeId]) && 
+                      farmerData.taskProgress[challengeId].length > 0;
+  const isCompleted = farmerData.completedChallenges.includes(challengeId);
+  return hasProgress && !isCompleted;
+}
+
 function displayChallenges() {
   const grid = $('#challengesGrid');
   grid.empty();
 
   challenges.forEach(challenge => {
     const isCompleted = farmerData.completedChallenges.includes(challenge.id);
+    const inProgress = isChallengeInProgress(challenge.id);
     const card = $(`
-      <div class="bg-white rounded-3xl shadow-lg p-6 transform hover:scale-105 transition-all cursor-pointer ${isCompleted ? 'opacity-60' : ''}" data-challenge-id="${challenge.id}">
+      <div class="bg-white rounded-3xl shadow-lg p-6 transform hover:scale-105 transition-all cursor-pointer ${isCompleted ? 'opacity-60' : ''} relative" data-challenge-id="${challenge.id}">
+        ${inProgress ? '<div class="absolute top-3 right-3 w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>' : ''}
         <div class="text-6xl text-center mb-4">${challenge.icon}</div>
         <h4 class="text-xl font-bold text-emerald-700 mb-2 text-center">${challenge.title}</h4>
         <p class="text-gray-600 text-sm mb-4 text-center">${challenge.description.substring(0, 60)}...</p>
@@ -401,6 +412,8 @@ function setupEventListeners() {
     $('#modalContent').removeClass('scale-100');
     setTimeout(() => {
       $('#challengeModal').addClass('hidden');
+      // Refresh challenges display to show green dot if challenge was started
+      displayChallenges();
     }, 300);
     // reset started state when closing
     challengeStarted = false;
@@ -430,16 +443,16 @@ function setupEventListeners() {
     }
   });
 
-  $('#themeToggle').click(function() {
-    $('body').toggleClass('dark');
-    if ($('body').hasClass('dark')) {
-      $('body').removeClass('bg-gradient-to-br from-emerald-50 to-lime-100')
-               .addClass('bg-gradient-to-br from-gray-800 to-gray-900');
-    } else {
-      $('body').removeClass('bg-gradient-to-br from-gray-800 to-gray-900')
-               .addClass('bg-gradient-to-br from-emerald-50 to-lime-100');
-    }
-  });
+  // $('#themeToggle').click(function() {
+  //   $('body').toggleClass('dark');
+  //   if ($('body').hasClass('dark')) {
+  //     $('body').removeClass('bg-gradient-to-br from-emerald-50 to-lime-100')
+  //              .addClass('bg-gradient-to-br from-gray-800 to-gray-900');
+  //   } else {
+  //     $('body').removeClass('bg-gradient-to-br from-gray-800 to-gray-900')
+  //              .addClass('bg-gradient-to-br from-emerald-50 to-lime-100');
+  //   }
+  // });
 }
 
 function completeChallenge(challenge) {
