@@ -90,7 +90,7 @@ let farmerData = null;
 let currentUserName = null;
 let posts = [];
 
-$(document).ready(function() {
+$(document).ready(function () {
   loadFarmerData();
   loadPosts();
   displayBadges();
@@ -128,24 +128,25 @@ function savePosts() {
 }
 
 function setupEventListeners() {
-  $('#postBtn').click(function() {
+  $('#postBtn').click(function () {
     createPost();
   });
 
-  $('#postInput').keypress(function(e) {
-    if (e.which === 13 && e.ctrlKey) {
+  $('#postInput').keypress(function (e) {
+    if (e.which === 13 && !e.shiftKey) {
+      e.preventDefault();
       createPost();
     }
   });
 
-  $('#themeToggle').click(function() {
+  $('#themeToggle').click(function () {
     $('body').toggleClass('dark');
     if ($('body').hasClass('dark')) {
       $('body').removeClass('bg-gradient-to-br from-emerald-50 to-lime-100')
-               .addClass('bg-gradient-to-br from-gray-800 to-gray-900');
+        .addClass('bg-gradient-to-br from-gray-800 to-gray-900');
     } else {
       $('body').removeClass('bg-gradient-to-br from-gray-800 to-gray-900')
-               .addClass('bg-gradient-to-br from-emerald-50 to-lime-100');
+        .addClass('bg-gradient-to-br from-emerald-50 to-lime-100');
     }
   });
 }
@@ -234,7 +235,7 @@ function displayFeed() {
       </div>
     `);
 
-    postCard.find('.like-btn').click(function() {
+    postCard.find('.like-btn').click(function () {
       const postId = $(this).data('post-id');
       toggleLike(postId, $(this));
     });
